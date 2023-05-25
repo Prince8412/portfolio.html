@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contacts</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+
+<body>
+    <div>
+        <h3>For Help</h3>
+        <p>For any type of help you con conntact on these informations</p>
+        <ul>
+            <li>Name:Prince Raj</li>
+            <li>Phone No: 9894983789</li>
+            <li>Tel No: 00113984</li>
+            <li>Email id: gallery12@gmail.com</li>
+            <li>Address: Dronacharya group of institutions greater noida,Uttar Pradesh.
+            </li>
+        </ul>
+    </div>
+    <div class="container">
+        <form onsubmit="sendEmail(); reset(); return false;">
+            <h3>Contact us</h3>
+            <input type="text" id="Name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email id" required>
+            <input type="text" id="phone" placeholder="Phone no." required>
+            <textarea id="massage" rows="4" placeholder="How can we help you?"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail() {
+            Email.send({
+                Host: "smtp.gemail.com",
+                Username: "princeraj010104@gmail.com",
+                Password: "263570E2FBBEA45315F5ABFACC1100E091F5",
+                To: 'princera9835781180@gmail.com.com',
+                From: document.getElementById("email").value,
+                Subject: "New contact from enquiry",
+                Body: "Name: " + document.getElementById("name").value +
+                    "<br> Email: " + document.getElementById("email").value +
+                    "<br> Phone no: " + document.getElementById("phone").value +
+                    "<br> Massage: " + document.getElementById("massage").value
+            }).then(
+                message => alert("Massage Sent succesfully")
+            );
+        }
+    </script>
+</body>
+
+</html>
